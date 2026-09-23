@@ -1,0 +1,46 @@
+%virtual environment 
+.venv/
+venv/
+
+#python 
+__pychache__/
+*.py[cod]
+*$py.class 
+
+#jupyter 
+.ipynb_checkpoints/
+
+#Dataset 
+data/raw/
+data/processed/
+
+#Trained models 
+models/*.keras 
+models/*.h5 
+models/*.onnx
+models/checkpoints/
+
+#Logs 
+*.log 
+
+#Environment variables 
+.env 
+
+#streamlit
+.streamlit/secrets.toml 
+
+#OS files
+.DS_Store 
+Thumbs.db 
+
+#VS Code 
+.vscode/
+
+#Temporary Files 
+*.tmp 
+*.temp 
+
+#Coverage 
+.coverage 
+htmlcov/
+.pytest_cache
