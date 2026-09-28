@@ -1,58 +1,58 @@
-# ðŸ… Tomato Leaf Disease Detection
+# 🍅 Tomato Leaf Disease Detection
 
 An end-to-end machine learning application for detecting tomato leaf diseases from uploaded images.
 
 The project combines **TensorFlow, FastAPI, Streamlit, Docker, Docker Compose, and automated testing** into a complete ML application pipeline.
 
-## ðŸš€ Features
+## 🚀 Features
 
-* ðŸ§  Deep-learning-based tomato leaf disease classification
-* ðŸ–¼ï¸ Image upload through a Streamlit web interface
-* âš¡ FastAPI REST API for model inference
-* ðŸ“Š Prediction confidence and class probabilities
-* ðŸ”Œ Streamlit â†” FastAPI integration
-* ðŸ³ Dockerized application
-* ðŸ³ Docker Compose with separate API and frontend services
-* â¤ï¸ API health-check endpoint
-* ðŸ§ª Automated tests with pytest
-* ðŸ“¦ Configurable API URL through environment variables
-* ðŸ“ Organized source-code structure for data, inference, and API components
+* 🧠 Deep-learning-based tomato leaf disease classification
+* 🖼️ Image upload through a Streamlit web interface
+* ⚡ FastAPI REST API for model inference
+* 📊 Prediction confidence and class probabilities
+* 🔌 Streamlit ↔ FastAPI integration
+* 🐳 Dockerized application
+* 🐳 Docker Compose with separate API and frontend services
+* ❤️ API health-check endpoint
+* 🧪 Automated tests with pytest
+* 📦 Configurable API URL through environment variables
+* 📁 Organized source-code structure for data, inference, and API components
 
-## ðŸ—ï¸ Architecture
+## 🏗️ Architecture
 
 ```text
-                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-                    â”‚      User           â”‚
-                    â”‚   Uploads Image     â”‚
-                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                               â”‚
-                               â–¼
-                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-                    â”‚     Streamlit       â”‚
-                    â”‚    Frontend :8501   â”‚
-                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                               â”‚
-                               â”‚ HTTP Request
-                               â–¼
-                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-                    â”‚       FastAPI       â”‚
-                    â”‚     Backend :8000   â”‚
-                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                               â”‚
-                               â–¼
-                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-                    â”‚  TensorFlow Model   â”‚
-                    â”‚      Inference      â”‚
-                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                               â”‚
-                               â–¼
-                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-                    â”‚ Disease Prediction  â”‚
-                    â”‚ + Confidence Score  â”‚
-                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                    ┌─────────────────────┐
+                    │      User           │
+                    │   Uploads Image     │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │     Streamlit       │
+                    │    Frontend :8501   │
+                    └──────────┬──────────┘
+                               │
+                               │ HTTP Request
+                               ▼
+                    ┌─────────────────────┐
+                    │       FastAPI       │
+                    │     Backend :8000   │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │  TensorFlow Model   │
+                    │      Inference      │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Disease Prediction  │
+                    │ + Confidence Score  │
+                    └─────────────────────┘
 ```
 
-## ðŸ› ï¸ Technology Stack
+## 🛠️ Technology Stack
 
 | Category                   | Technology          |
 | -------------------------- | ------------------- |
@@ -69,51 +69,51 @@ The project combines **TensorFlow, FastAPI, Streamlit, Docker, Docker Compose, a
 | Containerization           | Docker              |
 | Orchestration              | Docker Compose      |
 
-## ðŸ“‚ Project Structure
+## 📂 Project Structure
 
 ```text
 Tomato Leaf Disease Detection/
-â”‚
-â”œâ”€â”€ app/
-â”‚   â””â”€â”€ streamlit_app.py
-â”‚
-â”œâ”€â”€ data/
-â”‚
-â”œâ”€â”€ models/
-â”‚   â””â”€â”€ class_names.json
-â”‚
-â”œâ”€â”€ notebooks/
-â”‚   â””â”€â”€ 01_dataset_inspection.ipynb
-â”‚
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ api/
-â”‚   â”‚   â”œâ”€â”€ client.py
-â”‚   â”‚   â””â”€â”€ main.py
-â”‚   â”‚
-â”‚   â”œâ”€â”€ data/
-â”‚   â”‚   â””â”€â”€ download_dataset.py
-â”‚   â”‚
-â”‚   â””â”€â”€ inference/
-â”‚       â”œâ”€â”€ __init__.py
-â”‚       â””â”€â”€ predict.py
-â”‚
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ test_api.py
-â”‚   â”œâ”€â”€ test_inference.py
-â”‚   â”œâ”€â”€ test_leaf.jpg
-â”‚   â”œâ”€â”€ test_model.py
-â”‚   â””â”€â”€ test_prediction.py
-â”‚
-â”œâ”€â”€ .dockerignore
-â”œâ”€â”€ .gitignore
-â”œâ”€â”€ DockerFile
-â”œâ”€â”€ docker-compose.yml
-â”œâ”€â”€ pytest.ini
-â”œâ”€â”€ requirements.txt
-â””â”€â”€ README.md
+│
+├── app/
+│   └── streamlit_app.py
+│
+├── data/
+│
+├── models/
+│   └── class_names.json
+│
+├── notebooks/
+│   └── 01_dataset_inspection.ipynb
+│
+├── src/
+│   ├── api/
+│   │   ├── client.py
+│   │   └── main.py
+│   │
+│   ├── data/
+│   │   └── download_dataset.py
+│   │
+│   └── inference/
+│       ├── __init__.py
+│       └── predict.py
+│
+├── tests/
+│   ├── test_api.py
+│   ├── test_inference.py
+│   ├── test_leaf.jpg
+│   ├── test_model.py
+│   └── test_prediction.py
+│
+├── .dockerignore
+├── .gitignore
+├── DockerFile
+├── docker-compose.yml
+├── pytest.ini
+├── requirements.txt
+└── README.md
 ```
 
-## âš™ï¸ Local Setup
+## ⚙️ Local Setup
 
 ### 1. Clone the repository
 
@@ -174,7 +174,7 @@ The application will be available at:
 http://localhost:8501
 ```
 
-## ðŸ³ Run with Docker Compose
+## 🐳 Run with Docker Compose
 
 Docker Compose is the recommended way to run the complete application.
 
@@ -209,17 +209,17 @@ docker compose down
 Docker Compose runs two services:
 
 ```text
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚       Streamlit :8501       â”‚
-â”‚        Frontend             â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-               â”‚
-               â”‚ API_URL
-               â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚        FastAPI :8000        â”‚
-â”‚         Backend             â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌──────────────────────────────┐
+│       Streamlit :8501       │
+│        Frontend             │
+└──────────────┬───────────────┘
+               │
+               │ API_URL
+               ▼
+┌──────────────────────────────┐
+│        FastAPI :8000        │
+│         Backend             │
+└──────────────────────────────┘
 ```
 
 The Streamlit container communicates with FastAPI using:
@@ -230,7 +230,7 @@ http://api:8000
 
 The API includes a health check, and Streamlit waits for the API service to become healthy before starting.
 
-## ðŸ”Œ API Endpoints
+## 🔌 API Endpoints
 
 ### Health Check
 
@@ -278,7 +278,7 @@ Example response:
 
 The probability array contains the model's predicted probability distribution across the supported classes.
 
-## ðŸ§ª Testing
+## 🧪 Testing
 
 Run the test suite with:
 
@@ -299,7 +299,7 @@ A test image is included at:
 tests/test_leaf.jpg
 ```
 
-## ðŸ” API Verification
+## 🔍 API Verification
 
 Health check:
 
@@ -319,7 +319,7 @@ Swagger UI:
 http://localhost:8000/docs
 ```
 
-## ðŸ“Š Example Prediction
+## 📊 Example Prediction
 
 A test request successfully produced:
 
@@ -330,7 +330,7 @@ Confidence:      75.33%
 
 This verifies the complete inference path from image upload through the API to the TensorFlow model.
 
-## ðŸ” Configuration
+## 🔐 Configuration
 
 The Streamlit frontend uses the `API_URL` environment variable.
 
@@ -348,7 +348,7 @@ API_URL=http://api:8000
 
 This allows the same application code to work in both local and containerized environments.
 
-## ðŸ“Œ Project Highlights
+## 📌 Project Highlights
 
 This project demonstrates an end-to-end machine learning workflow rather than only model training.
 
@@ -364,7 +364,7 @@ It includes:
 * Multi-container orchestration
 * Service health checks
 
-## ðŸ”® Future Improvements
+## 🔮 Future Improvements
 
 Possible future improvements include:
 
@@ -379,7 +379,7 @@ Possible future improvements include:
 * Model versioning
 * Improved UI and visual analytics
 
-## ðŸ‘¨â€ðŸ’» Author
+## 👨‍💻 Author
 
 **Akash Raut**
 
