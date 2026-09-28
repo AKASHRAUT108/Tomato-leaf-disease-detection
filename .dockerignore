@@ -1,0 +1,27 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.git/
+.gitignore
+.streamlit/
+.ipynb_checkpoints/
+*.log
+.DS_Store
+Thumbs.db
+
+# Large datasets
+data/
+*.zip
+*.tar
+*.tar.gz
+
+# Not needed inside Docker image
+notebooks/
+tests/
+github/
+
+# Local development files
+.vscode/
+.idea/

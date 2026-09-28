@@ -1,8 +1,11 @@
+import os
 import requests
 
 
-API_URL = "http://127.0.0.1:8000"
-
+API_URL = os.getenv(
+    "API_URL",
+    "http://127.0.0.1:8000"
+)
 
 def check_api_health():
     response = requests.get(
