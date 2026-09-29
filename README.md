@@ -1,230 +1,333 @@
-# Tomato Leaf Disease Detection
+Tomato Leaf Disease Detection
 
-A deep learning application that helps identify tomato leaf diseases from images.
+An end-to-end deep learning application that detects tomato leaf diseases from images using a fine-tuned MobileNetV2 model.
 
-This project takes a tomato leaf image, processes it, and predicts the most likely disease using a fine-tuned MobileNetV2 model. The trained model is connected to a FastAPI backend and a Streamlit frontend, then packaged with Docker and deployed using Render.
+The project goes beyond model training by integrating the trained model into a complete application with a Streamlit user interface, FastAPI backend, Docker containerization, Docker Compose, and cloud deployment on Render.
 
-## Live Project
+The goal was to build a complete machine learning application that can take an image from a user, process it through a trained deep learning model, and return an easy-to-understand disease prediction.
 
-### Deployed Application
+Live Demo
+Web Application
 
-Try the project here:
+Try the application:
 
 https://tomato-leaf-disease-detection-1-wkc6.onrender.com
 
-You can upload a tomato leaf image and get a disease prediction along with its confidence and probability information.
+Upload a tomato leaf image and receive a predicted disease class along with confidence and prediction probabilities.
 
-### Backend API
+FastAPI Backend
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com
 
-### Swagger API Documentation
+Interactive API Documentation
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com/docs
 
-### API Health Check
+API Health Check
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com/health
 
-Expected response:
+Project Overview
 
-```json
-{
-  "status": "healthy"
-}
+Plant diseases can affect crop health and productivity, and identifying symptoms from leaf images can be a useful computer vision problem.
 
-About the Project
+This project explores how deep learning can be used to classify tomato leaf images into disease categories.
 
-Tomato Leaf Disease Detection is a computer vision and deep learning project built to classify tomato leaf images into different disease categories.
+Instead of stopping after training a classification model, the project follows the complete machine learning application lifecycle:
 
-The main goal of the project was not only to train a machine learning model, but also to turn that model into a complete application that people can actually use.
-
-The project includes:
-
-A trained deep learning model
-Image preprocessing
-FastAPI backend
-Streamlit frontend
-Docker containerization
-Docker Compose
-API health checks
-Cloud deployment using Render
-Git and GitHub version control
-
-The complete workflow is:
-
-User uploads image
-        |
-        v
-Streamlit frontend
-        |
-        | HTTP request
-        v
-FastAPI backend
-        |
-        v
-Image preprocessing
-        |
-        v
-Fine-tuned MobileNetV2
-        |
-        v
-Disease prediction
-        |
-        v
-Confidence and probabilities
-        |
-        v
-Result displayed to user
-Features
-Image Classification
-
-The application allows users to:
-
-Upload tomato leaf images
-Use JPG, JPEG, or PNG files
-Validate uploaded images
-Check minimum image dimensions
-Convert images to RGB
-Resize images to 224 x 224 pixels
-Apply MobileNetV2 preprocessing
-Predict the disease class
-Prediction Results
-
-The Streamlit application provides:
-
-Predicted disease
-Prediction confidence
-Top predictions
-Probability distribution
-Prediction history
-Prediction statistics
-Most frequently predicted disease
-Disease prediction counts
-Confidence trend visualization
-Prediction history visualization
-CSV download of prediction history
+Image
+  |
+  v
+Image Preprocessing
+  |
+  v
+Fine-Tuned MobileNetV2
+  |
+  v
+Disease Classification
+  |
+  v
+Prediction + Confidence
+  |
+  v
 FastAPI Backend
-
-The backend provides:
-
-REST API
-Health check endpoint
-Image prediction endpoint
-Automatic Swagger documentation
-Image validation
-Error handling
+  |
+  v
+Streamlit Application
+  |
+  v
 Docker
+  |
+  v
+Render Deployment
+Problem Statement
 
-The project supports:
+The objective of this project is to build a computer vision application capable of analyzing a tomato leaf image and predicting the corresponding disease class.
 
-Docker image builds
-Docker Compose
-Separate API and Streamlit services
-Containerized model inference
-Service-to-service communication
-API health checks
-Service dependency management
-Cloud Deployment
+The system should provide a simple interface where a user can:
 
-The application is deployed on Render with:
+Upload a tomato leaf image.
+Send the image to the prediction system.
+Process the image using the trained model.
+Receive the predicted disease.
+View the prediction confidence and probability information.
+Project Objective
 
-Streamlit frontend
-FastAPI backend
-Docker-based deployment
-Public API
-Public web application
-Machine Learning
+The main objectives of the project were:
 
-The project uses a fine-tuned MobileNetV2 convolutional neural network for tomato leaf disease classification.
+Build a deep learning image classification model.
+Apply transfer learning using MobileNetV2.
+Create a reusable inference pipeline.
+Expose the model through a REST API.
+Build a user-friendly Streamlit interface.
+Containerize the application using Docker.
+Run the frontend and backend using Docker Compose.
+Deploy the application to the cloud.
+Create a complete end-to-end machine learning project suitable for real-world demonstration.
+How the Application Works
 
-Model
-MobileNetV2
-     |
-     v
-Fine-tuning
-     |
-     v
-Tomato Leaf Disease Classification
-Input Processing
+The application follows a simple prediction workflow.
 
-Before prediction, the uploaded image is:
+Step 1 - Upload Image
+
+The user uploads a tomato leaf image through the Streamlit interface.
+
+Supported formats include:
+
+JPG
+JPEG
+PNG
+Step 2 - Image Validation
+
+The backend checks:
+
+File type
+Image validity
+Image dimensions
+
+Invalid or unsupported images are rejected before prediction.
+
+Step 3 - Image Preprocessing
+
+The uploaded image is:
 
 Converted to RGB
 Resized to 224 x 224 pixels
 Converted into a NumPy array
 Preprocessed using MobileNetV2 preprocessing
-Passed to the trained model
+Step 4 - Model Inference
+
+The processed image is passed to the fine-tuned MobileNetV2 model.
+
+The model generates probabilities for the supported disease classes.
+
+Step 5 - Prediction
+
+The class with the highest predicted probability is selected as the final prediction.
+
+The API returns:
+
+Filename
+Predicted class
+Confidence
+Prediction probabilities
+Step 6 - Display Results
+
+The Streamlit application presents the prediction in a user-friendly format.
+
+It also provides additional prediction information such as top predictions, confidence visualization, and prediction history.
+
+Key Features
+Deep Learning
+Fine-tuned MobileNetV2 model
+Image classification
+Transfer learning
+MobileNetV2 preprocessing
+Probability-based predictions
+Streamlit Application
+
+The frontend provides:
+
+Image upload
+Disease prediction
+Confidence display
+Top predictions
+Probability distribution
+Prediction history
+Prediction statistics
+Confidence trend visualization
+Prediction history visualization
+CSV download
+FastAPI Backend
+
+The API provides:
+
+REST API
+Image upload endpoint
+Prediction endpoint
+Health check endpoint
+Input validation
+Error handling
+Automatic Swagger documentation
+Docker
+
+The project includes:
+
+Docker image configuration
+Docker Compose
+API container
+Streamlit container
+Service-to-service communication
+API health checks
+Container dependency management
+Cloud Deployment
+
+The application is deployed with separate frontend and backend services on Render.
+
+Machine Learning Approach
+
+The project uses transfer learning with MobileNetV2.
+
+MobileNetV2 provides a lightweight convolutional neural network architecture that can be adapted to image classification tasks.
+
+The model used in this project is a fine-tuned MobileNetV2 model trained for tomato leaf disease classification.
+
+Model Pipeline
+Input Image
+     |
+     v
+RGB Conversion
+     |
+     v
+Resize to 224 x 224
+     |
+     v
+MobileNetV2 Preprocessing
+     |
+     v
+Fine-Tuned MobileNetV2
+     |
+     v
+Class Probabilities
+     |
+     v
+Predicted Disease
+Model Input
+Image format: RGB
+Input size: 224 x 224
+Model: MobileNetV2
 Model Output
 
-The model returns:
+The inference pipeline returns:
 
-Predicted disease class
-Prediction confidence
-Probability for each supported class
+{
+  "class": "Predicted disease class",
+  "confidence": 0.75,
+  "probabilities": []
+}
+Example Prediction
 
-Example:
+A production API test returned a prediction in the following format:
 
 {
   "filename": "test_leaf.jpg",
   "predicted_class": "Late_blight227",
-  "confidence": 0.7533
+  "confidence": 0.7533,
+  "probabilities": [
+    0.0229,
+    0.0441,
+    0.7533,
+    0.0101,
+    0.0292,
+    0.0014,
+    0.0947,
+    0.0045,
+    0.0048,
+    0.0349
+  ]
 }
-System Architecture
-                         User
+
+The probability values represent the model's predicted probability distribution across the supported classes.
+
+Application Architecture
+
+The project separates the user interface, API, and machine learning inference logic.
+
+                         USER
                            |
                            v
-                +---------------------+
-                | Streamlit Frontend  |
-                +----------+----------+
+                 +-------------------+
+                 | Streamlit Frontend|
+                 +---------+---------+
                            |
-                           | HTTP
+                           | HTTP Request
                            v
-                +---------------------+
-                |   FastAPI Backend   |
-                +----------+----------+
-                           |
-                           v
-                +---------------------+
-                | Image Preprocessing |
-                +----------+----------+
+                 +-------------------+
+                 |   FastAPI API     |
+                 +---------+---------+
                            |
                            v
-                +---------------------+
-                |     MobileNetV2     |
-                |   Fine-tuned Model  |
-                +----------+----------+
+                 +-------------------+
+                 | Image Validation  |
+                 +---------+---------+
                            |
                            v
-                +---------------------+
-                |  Disease Prediction |
-                +----------+----------+
+                 +-------------------+
+                 | Image Preprocess  |
+                 +---------+---------+
                            |
                            v
-                +---------------------+
-                | Prediction Results  |
-                +----------+----------+
+                 +-------------------+
+                 |  MobileNetV2      |
+                 |  Fine-Tuned Model |
+                 +---------+---------+
                            |
                            v
-                +---------------------+
-                | Streamlit Display   |
-                +---------------------+
+                 +-------------------+
+                 | Prediction Result |
+                 +---------+---------+
+                           |
+                           v
+                 +-------------------+
+                 | Streamlit Display |
+                 +-------------------+
+Deployment Architecture
+
+The deployed system uses separate frontend and backend services.
+
+                         Internet
+                            |
+              +-------------+-------------+
+              |                           |
+              v                           v
+      Streamlit Frontend          FastAPI Backend
+          Render                     Render
+              |                           |
+              |       HTTP Request        |
+              +---------------------------+
+                          |
+                          v
+                  MobileNetV2 Model
+                          |
+                          v
+                  Disease Prediction
 Technology Stack
-Category	Technology
-Programming Language	Python
+Area	Technology
+Programming	Python
 Deep Learning	TensorFlow / Keras
 Model	MobileNetV2
-Numerical Processing	NumPy
 Image Processing	Pillow
-Backend API	FastAPI
+Numerical Computing	NumPy
+Backend	FastAPI
 API Server	Uvicorn
 Frontend	Streamlit
+HTTP Client	Requests
 Containerization	Docker
-Multi-service Setup	Docker Compose
-Cloud Deployment	Render
+Multi-container Setup	Docker Compose
 Version Control	Git / GitHub
+Cloud Deployment	Render
 Project Structure
-Tomato Leaf Disease Detection/
+Tomato-leaf-disease-detection/
 |
 +-- app/
 |   +-- streamlit_app.py
@@ -250,11 +353,14 @@ Tomato Leaf Disease Detection/
 +-- .gitignore
 +-- requirements.txt
 +-- README.md
-API Endpoints
-Root
+API
+
+The FastAPI backend exposes three main endpoints.
+
+Root Endpoint
 GET /
 
-Returns basic information about the API.
+Provides basic information about the API.
 
 Health Check
 GET /health
@@ -267,91 +373,47 @@ Example response:
 Prediction
 POST /predict
 
-Upload a tomato leaf image using the file field.
-
-Supported formats:
-
-JPG
-JPEG
-PNG
+The endpoint accepts an image through the file field.
 
 Example:
 
 curl.exe -X POST "http://localhost:8000/predict" -F "file=@tests/test_leaf.jpg"
 
-Example response:
-
-{
-  "filename": "test_leaf.jpg",
-  "predicted_class": "Late_blight227",
-  "confidence": 0.7533,
-  "probabilities": [
-    0.0229,
-    0.0441,
-    0.7533,
-    0.0101,
-    0.0292,
-    0.0014,
-    0.0947,
-    0.0045,
-    0.0048,
-    0.0349
-  ]
-}
-
-Production API:
+The production API is available at:
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com
 
-Swagger API Documentation
+Swagger Documentation
 
-FastAPI automatically provides interactive API documentation.
+FastAPI automatically generates interactive API documentation.
 
-Local Swagger
+Local
+
 http://localhost:8000/docs
-Production Swagger
+
+Production
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com/docs
 
-The Swagger interface can be used to test the API endpoints directly.
+The Swagger interface makes it possible to test the API without writing a separate client.
 
-Run with Docker
-Build the containers
-docker compose build
-Start the application
-docker compose up
-
-The project runs two services:
-
-FastAPI   -> http://localhost:8000
-Streamlit -> http://localhost:8501
-Streamlit
-http://localhost:8501
-FastAPI
-http://localhost:8000
-Swagger
-http://localhost:8000/docs
-Stop the containers
-docker compose down
-Run Locally Without Docker
-1. Clone the repository
+Running the Project Locally
+1. Clone the Repository
 git clone https://github.com/AKASHRAUT108/Tomato-leaf-disease-detection.git
+
 cd Tomato-leaf-disease-detection
-2. Create a virtual environment
-
-Windows PowerShell:
-
+2. Create a Virtual Environment
 python -m venv .venv
 
-Activate it:
+Activate it on Windows PowerShell:
 
 .venv\Scripts\Activate.ps1
-3. Install dependencies
+3. Install Dependencies
 pip install -r requirements.txt
-4. Start FastAPI
+4. Start the FastAPI Backend
 python -m uvicorn src.api.main:app --reload
 
-API:
+The API will be available at:
 
 http://127.0.0.1:8000
 
@@ -364,20 +426,30 @@ Open another terminal with the virtual environment activated:
 
 streamlit run app/streamlit_app.py
 
-Application:
+The application will be available at:
 
 http://localhost:8501
-API Testing
-Local health check
-Invoke-WebRequest "http://localhost:8000/health"
-Local prediction
-curl.exe -X POST "http://localhost:8000/predict" `
-  -F "file=@tests/test_leaf.jpg"
-Production health check
-Invoke-WebRequest "https://tomato-leaf-disease-detection-bqtc.onrender.com/health"
+Running with Docker
+
+The project can also be run using Docker Compose.
+
+Build the Containers
+docker compose build
+Start the Application
+docker compose up
+
+The services run on:
+
+FastAPI   -> http://localhost:8000
+Streamlit -> http://localhost:8501
+Stop the Application
+docker compose down
+
+Docker Compose also includes an API health check so that the Streamlit service can wait for the backend to become healthy.
+
 Deployment
 
-The application is containerized using Docker and deployed using Render.
+The application is deployed on Render using containerized services.
 
 Frontend
 
@@ -399,56 +471,63 @@ Health Check
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com/health
 
-The Streamlit frontend communicates with the FastAPI backend using the API_URL environment variable.
+The Streamlit frontend communicates with the deployed FastAPI backend through the configured API_URL environment variable.
 
-Deployment Architecture
-GitHub Repository
-        |
-        v
-   Docker Build
-        |
-        +---------------------+
-        |                     |
-        v                     v
- FastAPI Service       Streamlit Service
-     Render                  Render
-        |                     |
-        +------- HTTP --------+
-                  |
-                  v
-          MobileNetV2 Model
-                  |
-                  v
-         Disease Prediction
-Project Highlights
+What I Learned
 
-This project gave me practical experience with the complete machine learning application workflow.
+Building this project helped me understand how a machine learning model can be turned into a complete application.
 
-It covers:
+Some of the main areas I worked with include:
 
-Computer vision
-Deep learning
+Deep learning for image classification
 Transfer learning
-TensorFlow and Keras
 MobileNetV2
 Image preprocessing
+TensorFlow and Keras
 Model inference
-REST API development
-FastAPI
-Streamlit
-Docker
+FastAPI REST APIs
+Streamlit application development
+API-to-frontend communication
+Docker containerization
 Docker Compose
+Health checks and service dependencies
 Cloud deployment
 Git and GitHub
-Production-style application architecture
+Structuring a machine learning project for deployment
 
-The main focus of the project was to go beyond simply training a model. The trained model has been integrated into a complete application with a frontend, backend API, containerized environment, and public cloud deployment.
+The biggest learning from the project was understanding that building a machine learning project is not only about training a model.
 
+A complete project also needs:
+
+Model
+  +
+Inference Pipeline
+  +
+Backend API
+  +
+Frontend
+  +
+Containerization
+  +
+Deployment
+Future Improvements
+
+Possible improvements for future versions include:
+
+Adding more detailed model evaluation reports
+Improving prediction explanations
+Adding additional image augmentation strategies
+Adding model version management
+Adding automated testing
+Adding CI/CD through GitHub Actions
+Adding monitoring for the deployed API
+Improving the frontend user experience
+Adding more agricultural information around predicted diseases
 Disclaimer
 
 This project is intended for educational and demonstration purposes.
 
-The predictions generated by the model should not be considered a substitute for professional agricultural diagnosis or expert advice.
+The predictions generated by the application should not be treated as a replacement for professional agricultural diagnosis or expert advice.
 
 Author
 
@@ -464,16 +543,16 @@ https://github.com/AKASHRAUT108/Tomato-leaf-disease-detection
 
 Try the Application
 
-Live Application:
+If you would like to see the project in action:
+
+Live Application
 
 https://tomato-leaf-disease-detection-1-wkc6.onrender.com
 
-FastAPI Backend:
+API
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com
 
-Swagger Documentation:
+Swagger Documentation
 
 https://tomato-leaf-disease-detection-bqtc.onrender.com/docs
-
-
